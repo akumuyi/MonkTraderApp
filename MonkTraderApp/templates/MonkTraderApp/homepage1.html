@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MonkTraderApp® Admin Dashboard{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/homepage1.css' %}"> <!-- Link to homepage1.css stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/signal_services.css' %}"> <!-- Link to signal_services.css stylesheet -->
+    {% block extra_css %}{% endblock %} <!-- Additional CSS can be added here -->
+    <link href="{% static 'autocomplete_light/select2.css' %}" rel="stylesheet"> <!-- Link to select2.css stylesheet -->
+    <script src="{% static 'autocomplete_light/jquery.js' %}"></script> <!-- Link to jQuery library -->
+    <script src="{% static 'autocomplete_light/select2.js' %}"></script> <!-- Link to select2.js library -->
+    <script src="{% static 'autocomplete_light/autocomplete.init.js' %}"></script> <!-- Link to autocomplete.init.js script -->
+    <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script> <!-- Link to CKEditor library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet"> <!-- Link to lightbox.min.css stylesheet -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script> <!-- Link to lightbox.min.js script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            CKEDITOR.replace('report_content', {
+                extraAllowedContent: 'img[!src,alt,width,height];' // Allow image tags with specific attributes
+            });
+
+            // Wrap images in anchor tags for Lightbox2
+            document.querySelectorAll('.report_card p img').forEach(function(img) {
+                var link = document.createElement('a');
+                link.href = img.src;
+                link.setAttribute('data-lightbox', 'report-images');
+                img.parentNode.insertBefore(link, img);
+                link.appendChild(img);
+            });
+        });
+    </script>
+    <script>
+        function toggleReportContent(reportId) {
+            // Hide all report contents
+            var allContentDivs = document.querySelectorAll('.report-content');
+            allContentDivs.forEach(function(div) {
+                div.style.display = 'none';
+            });
+
+            // Display the clicked report content
+            var contentDiv = document.getElementById('report-content-' + reportId);
+            if (contentDiv.style.display === 'none' || contentDiv.style.display === '') {
+                contentDiv.style.display = 'block';
+            } else {
+                contentDiv.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="hero">
+            <div id="logo-div">
+                <a href="{% url 'MonkTraderApp:homepage1' %}"><img src="{% static '/images/tm_logo.png' %}" alt="logo" id="logo"></a> <!-- Link to homepage1 URL and display logo image -->
+            </div>
+        </div>
+        <h1 style="font-size: large;">Logged in as <span style="color: #0781fe;">{{ user.username }}</span></h1> <!-- Display logged in user's username -->
+    </header>
+
+    <div class="navbar_section" id="navbar_section">
+        <button class="close_btn" id="close_navbar"><span class="spin">&#10006;</span></button>
+        <nav>
+            <ul>
+                <li><a href="{% url 'MonkTraderApp:homepage1' %}" id="overview_link">Overview</a></li> <!-- Link to homepage1 URL -->
+                <li><a href="{% url 'MonkTraderApp:market_reports' %}" id="market_reports_link">Market Reports</a></li> <!-- Link to market_reports URL -->
+                <li><a href="{% url 'MonkTraderApp:signal_services' %}" id="signal_services_link">Signal Services</a></li> <!-- Link to signal_services URL -->
+                <li><a href="{% url 'MonkTraderApp:educational_materials' %}" id="education_link">Education/Mentorship</a></li> <!-- Link to educational_materials URL -->
+                <li><a href="{% url 'MonkTraderApp:logout' %}">Logout</a></li> <!-- Link to logout URL -->
+            </ul>
+        </nav>
+    </div>
+
+    <button class="open_btn" id="open_navbar">&#9776;</button>
+
+    <main id="main_content">
+        {% block content %}
+        <section id="overview_section">
+            <h2>Overview</h2>
+            <p>Welcome to the admin dashboard of MonkTraderApp. Here you can manage market reports, signal services, and
+                educational materials to help users navigate the financial markets.</p>
+            <p>Our mission is to empower traders with the knowledge and tools they need to succeed. We hope you find our
+                resources valuable and wish you the best in your trading journey.</p>
+            <p>Created by: The MonkTrader Team</p>
+        </section>
+        {% endblock %}
+    </main>
+    <script src="{% static 'js/homepage1.js' %}"></script> <!-- Link to homepage1.js script -->
+</body>
+
+</html>

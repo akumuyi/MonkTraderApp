@@ -1,0 +1,301 @@
+/* General Styles */
+body {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #1e1e1e;
+    color: #fff;
+    text-align: center;
+    padding-top: 1rem;
+    flex-wrap: wrap;
+    z-index: 999; /* Add this line to ensure the header is displayed above other content */
+}
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 384px;
+}
+
+#logo {
+    height: 70%;
+    width: 70%;
+}
+
+img#logo {
+    padding-right: 20px;
+}
+
+h1 {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Navbar Section */
+.navbar_section {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #fff;
+    overflow-x: hidden;
+    transition: 1.3s;
+    z-index: 1000;
+}
+
+.navbar_section nav ul {
+    margin-top: 100px;
+    list-style-type: none;
+    padding: 0;
+}
+
+.navbar_section nav ul li {
+    padding: 30px;
+    text-align: center;
+}
+
+.navbar_section nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.navbar_section nav ul li a:hover {
+    background-color: #575757;
+}
+
+.navbar_section .close_btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #575757;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding-top: 13px;
+    z-index: 9999; /* Add this line to ensure the close button is displayed above other content */
+}
+
+.open_btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 9999;
+    color: #575757;
+}
+
+.open_btn:hover,
+.close_btn:hover {
+    color: #aaa;
+}
+
+/* Main Content */
+#main_content {
+    margin: 100px 50px 0px 50px;
+    padding: 0px 20px 20px 20px;
+    transition: margin-left 0.5s;
+}
+
+/* Overview Section */
+#overview_section {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 15x;
+    border-radius: 15px;
+}
+
+#overview_section h2 {
+    margin: 0px;
+}
+
+/* Hidden Sections */
+.hidden_section {
+    display: none;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Active Section */
+.active_section {
+    display: block;
+    animation: easeIn 0.5s;
+    border-top-left-radius: 0.6rem;
+    border-top-right-radius: 0.6rem;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(107.56deg, #1e1e1e 0, #262729 100%);
+    color: #ffffff;
+}
+
+.active_section ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+#overview_section h2 {
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Enhanced Navbar Styles */
+.navbar_section.active {
+    left: 0;
+}
+
+/* Enhanced Overview Section */
+#overview_section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+/* Enhanced Hidden Sections */
+.hidden_section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.hidden_section ul li {
+    padding: 10px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-left: 4px solid #333;
+}
+
+.hidden_section ul li h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.hidden_section ul li p {
+    margin: 5px 0 0;
+}
+
+/* Subscription Section */
+#manage_subscription_section p {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Blurred Overview Section */
+#main_content.blurred {
+    filter: blur(5px);
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #0781FE;
+}
+
+.pagination span {
+    margin: 0 10px;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .navbar_section {
+        width: 200px;
+    }
+
+    .navbar_section nav ul li {
+        padding: 8px;
+    }
+
+    .navbar_section .close_btn {
+        font-size: 1.2rem;
+        top: 5px;
+    }
+
+    .open_btn {
+        font-size: 1.2rem;
+        top: 15px;
+        left: 15px;
+    }
+
+    #main_content {
+        margin-left: 40px;
+        padding: 15px;
+        margin-top: 100px;
+    }
+
+    .hidden_section ul li {
+        padding: 8px;
+    }
+}
+
+
+/* Animation for easing in sections from the top */
+@keyframes easeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ease-in-top {
+    animation: easeInTop 2s forwards;
+}

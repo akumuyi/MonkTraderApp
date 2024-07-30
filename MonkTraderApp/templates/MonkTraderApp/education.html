@@ -1,0 +1,59 @@
+{% extends 'MonkTraderApp/homepage1.html' %}
+{% load static %}
+
+{% block title %}Learning Resources{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/education.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="overview_section">
+    <h2>Education/Mentorship</h2>
+    <form method="POST" action="{% url 'MonkTraderApp:upload_educational_material' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="material_title">Title</label>
+            <input type="text" id="material_title" name="title" required>
+        </div>
+        <div class="form-group">
+            <label for="material_file">File</label>
+            <input type="file" id="material_file" name="file" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+    <div class="materials">
+        {% for material in educations %}
+        <div class="material_file">
+            <h3>{{ material.title }}</h3>
+            <div class="material_btn">
+                <a class="btn btn-danger" href="http://127.0.0.1:8000/{{material.file}}" target="_blank">Download</a>
+                <form method="POST" action="{% url 'MonkTraderApp:delete_educational_material' material.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

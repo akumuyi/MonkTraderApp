@@ -1,0 +1,82 @@
+{% extends 'MonkTraderApp/homepage1.html' %}
+{% load static %}
+{% block title %}Trade Calls (Signals){% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/signal_services.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="overview_section">
+    <h2><span>📣</span>Trade Calls</h2>
+
+    <form class="form1 common" method="POST" action="{% url 'MonkTraderApp:create_signal_service' %}">
+        {% csrf_token %}
+        <div class="ABP">
+            <div class="form-group">
+                <label for="signal_asset">Asset</label>
+                <input type="text" id="signal_asset" name="asset" required>
+            </div>
+            <div class="form-group">
+                <label for="signal_bias">Bias</label>
+                <input type="text" id="signal_bias" name="bias" required>
+            </div>
+            <div class="form-group">
+                <label for="signal_entry">Entry</label>
+                <input type="text" id="signal_entry" name="entry" required>
+            </div>
+        </div>
+        <div class="EST">
+            <div class="form-group">
+                <label for="signal_sl">SL</label>
+                <input type="text" id="signal_sl" name="SL" required>
+            </div>
+            <div class="form-group">
+                <label for="signal_tp">TP</label>
+                <input type="text" id="signal_tp" name="TP" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Post Signal</button>
+        </div>
+    </form>
+
+    <div class="signals-container">
+        {% for signal in signals %}
+        <div class="signal-card">
+            <p> {{ signals.0.created_at|date:"jS F" }}</p>
+            <h3>{{ signal.asset }}</h3>
+            <div class="card-divs"><strong style="color: #0781FE;">Bias</strong> <span> {{ signal.bias }}</span></div>
+            <div class="card-divs"><strong style="color: #0781FE;">Entry</strong> <span id="entry_price">{{ signal.entry }}</span></div>
+            <div class="card-divs"><strong style="color: #0781FE;">SL</strong> <span> {{ signal.SL|floatformat:4 }}</span></span></div>
+            <div class="card-divs"><strong style="color: #0781FE;">TP</strong> <span>{{ signal.TP|floatformat:4 }}</span></div>
+            <form method="POST" action="{% url 'MonkTraderApp:delete_signal_service' signal.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn1 btn-danger">Delete</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <div class="disclaimer">
+        <p>⚠ DISCLAIMER: The signal(s) provided on this page are for educational purposes only. Any risk(s) associated with taking the signal(s) are the user's responsibility. Trade Monastery or its affiliates are not responsible for any losses incurred by the user. The financial markets are very volatile and dynamic, past results do not determine future outcomes. Kindly do your own due diligence before taking any trade signal(s).</p>
+    </div>
+    <div class="copyright">
+        <p style="text-align: center;">&copy; 2024 MonkTraderApp®. All rights reserved.</p>
+    </div>
+</div>
+{% endblock %}

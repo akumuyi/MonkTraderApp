@@ -1,0 +1,34 @@
+#overview-section {
+    width: 100%;
+    min-width: 365px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#overview-section span {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+#overview_section p {
+    margin-bottom: 0.2rem;
+}
+
+.alert {
+    text-align: center;
+    margin: 45px auto;
+    font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .active_section {
+        width: 100%;
+    }
+
+    .signals-container {
+        width: min-content;
+    }
+}

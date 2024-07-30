@@ -1,0 +1,149 @@
+body {
+    font-family: "Poppins", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+.common {
+    margin: 15px;
+}
+
+#overview-section span {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 650px; /* Set a maximum width for the form */
+    margin: 20px auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding inside the form */
+    background-color: #262729; /* Light background color */
+    border: 2px solid #056ab1; /* Light border */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    
+}
+
+.ABP {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.EST {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.EST button {
+    margin-top: 35px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-group label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold text for labels */
+    align-self: center;
+}
+
+.form-group input {
+    width: 100%; /* Full width for inputs */
+    padding: 5px; /* Padding inside inputs */
+    border: 1px solid #0781FE; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size for inputs */
+}
+
+.form-group input:focus {
+    border-color: #0781FE; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(7, 129, 254, 0.5); /* Subtle shadow on focus */
+}
+
+.btn {
+    background-color: #0781FE; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 15px; /* Padding inside button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.btn:hover {
+    background-color: #056ab1; /* Darker shade on hover */
+}
+
+.outer_signals-container {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #262729;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    border: 1px solid #056ab1;
+    border-radius: 15px;
+    padding-bottom: 30px;
+}
+
+.outer_signals-container p {
+    color: #ffffff;
+}
+
+.signals-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+/* Card ListView section for signal services*/
+.signal-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(107.56deg, #1e1e1e 0, #262729 100%);
+    flex-wrap: wrap;
+    width: 150px;
+    height: 150px;
+}
+
+.signal-card h3 {
+    margin: 0;
+    align-self: center;
+}
+
+.signal-card p {
+    align-self: center;
+}
+

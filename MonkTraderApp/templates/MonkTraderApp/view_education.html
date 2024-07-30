@@ -1,0 +1,38 @@
+{% extends 'MonkTraderApp/homepage2.html' %}
+{% load static %}
+{% block title %}Learning Resources{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/view_education.css' %}">
+{% endblock %}
+{% block content %}
+<div id="overview_section">
+    <h2><span>📣</span>Education/Mentorship</h2>
+    <div class="materials">
+        {% for material in learning %}
+        <div class="material_file">
+            <h3>{{ material.title }}</h3>
+            <div class="material_btn">
+                <a class="btn btn-danger" href="http://127.0.0.1:8000/{{material.file}}" target="_blank">Download</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+{% endblock %}

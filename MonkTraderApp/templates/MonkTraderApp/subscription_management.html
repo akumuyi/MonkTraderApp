@@ -1,0 +1,20 @@
+{% extends 'MonkTraderApp/homepage2.html' %}
+{% load static %}
+{% block title %}Subscription Management{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/subscription_management.css' %}">
+{% endblock %}
+{% block content %}
+<div id="overview_section">
+    <h2><span>📣</span> Subscription Manager</h2>
+
+    <!-- Message for users about upcoming subscription channels -->
+    <div class="alert alert-info" role="alert">
+        <strong>Exciting News!</strong> Subscription channels will be added soon. Stay tuned for updates!
+    </div>
+
+    <div class="copyright">
+        <p style="text-align: center;">&copy; 2024 MonkTraderApp®. All rights reserved.</p>
+    </div>
+</div>
+{% endblock %}

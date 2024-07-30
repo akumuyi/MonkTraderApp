@@ -1,0 +1,30 @@
+{% extends 'MonkTraderApp/homepage1.html' %}
+{% load static %}
+
+{% block title %}Education Materials{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/edit_market_report.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="overview_section">
+    <h1>Edit Report</h1>
+    <form class="fields" method="POST" action="{% url 'MonkTraderApp:edit_report' pk=report.pk %}">
+        {% csrf_token %}
+        <div class="form-title">
+            <label id="title-label" for="report_title"><strong>Title</strong></label>
+            <input type="text" id="report_title" name="title" value="{{ form.title.value }}" required>
+        </div>
+        <div class="form-content">
+            <label for="report_content"><strong>Content</strong></label>
+            <textarea id="report_content" name="report" rows="5" required>{{ form.report.value }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+    </form>
+    <form method="GET" action="{% url 'MonkTraderApp:market_reports' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Back</button>
+    </form>
+</div>
+{% endblock %}

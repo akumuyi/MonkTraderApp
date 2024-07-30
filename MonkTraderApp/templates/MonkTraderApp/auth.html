@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - MonkTraderApp</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="row form-wrapper">
+        <div id="hero">
+            <div id="logo-div">
+                <img src="{% static '/images/tm_logo.png' %}" alt="logo" id="logo">
+            </div>
+        </div>
+
+        <div class="login_row">
+            <div class="switch-buttons">
+                <div class="slider {% if login_form %}move-slider{% else %}move-slider1{% endif %}" id="slider-button">
+
+                </div>
+                <button class="switch-buttons__item" id="sign-in-switch" type="button"
+                    data-url="{% url 'MonkTraderApp:login' %}">Sign in</button>
+                <button class="switch-buttons__item" id="register-switch" type="button"
+                    data-url="{% url 'MonkTraderApp:signup' %}">Register</button>
+
+            </div>
+        </div>
+        {% if messages %}
+
+        {% for message in messages %}
+        <p id="error-message">{{message }}</p>
+        {% endfor %}
+
+        {% endif %}
+        {% if signup_form.errors %}
+        {% for field in signup_form %}
+            {% for error in field.errors %}
+            <p class="alert">{{ error }}</p>
+            {% endfor %}
+            {% endfor %}
+        {% endif %}
+        <form id="kc-register-form" method="POST">
+            {% csrf_token %}
+            <div class="form_container" id="form-container">
+                {% if signup_form %}
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.first_name}}
+                        <label class="id_first_name all-labels" for="id_first_name">First name</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.last_name}}
+                        <label class="id_last_name all-labels" for="id_last_name">Last name</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.username}}
+                        <label class="id_username all-labels" for="id_username">Username</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.email}}
+                        <label class="id_email all-labels" for="id_email">Email</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.password1}}
+                        <label class="id_password1 all-labels" for="id_password1">Password</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{signup_form.password2}}
+                        <label class="id_password2 all-labels" for="id_password2">Confirm password</label>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Separating signup from login -->
+                {% if login_form %}
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{login_form.username}}
+                        <label class="id_username all-labels" for="id_username">Username</label>
+                    </div>
+                </div>
+                <div class="login__row">
+                    <div class="floating-input-container">
+                        {{login_form.password}}
+                        <label class="id_password all-labels" for="id_password">Password</label>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div id="kc-form-buttons" class="login__row">
+                <button class="btn btn--fluid btn-primary btn-sm btn-lg" type="submit">
+                    {% if signup_form %}
+                    Register
+                    {% else %}
+                    Login
+                    {% endif %}
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="copyright">
+        <p style="text-align: center; margin-top: 15px;">&copy; 2024 MonkTraderApp®. All rights reserved.</p>
+    </div>
+</body>
+<script src="{% static 'js/auth.js' %}"></script>
+
+</html>

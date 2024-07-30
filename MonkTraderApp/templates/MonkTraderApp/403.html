@@ -1,0 +1,67 @@
+{% extends 'MonkTraderApp/homepage2.html' %}
+{% load static %}
+{% block title %}403 Forbidden{% endblock %}
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8d7da;
+        /* Light red background */
+        color: #721c24;
+        /* Dark red text */
+        text-align: center;
+        padding: 50px;
+        margin: 0;
+        height: 100vh;
+        /* Full height */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    #redirect-message {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    #countdown {
+        color: #155724;
+        /* Dark green for countdown */
+    }
+</style>
+
+<h1>403 Forbidden</h1>
+<p>You don't have permission to access this page.</p>
+<p id="redirect-message">Redirecting in <span id="countdown">8</span> seconds...</p>
+
+<script>
+    var countdownElement = document.getElementById('countdown');
+    var redirectUrl = "{% url 'MonkTraderApp:homepage2' %}";  // Replace with your desired redirect URL
+
+    var countdown = 8;
+    var countdownInterval = setInterval(function () {
+        countdown--;
+        countdownElement.textContent = countdown;
+
+        if (countdown === 0) {
+            clearInterval(countdownInterval);
+            window.location.href = redirectUrl;
+        }
+    }, 1000);
+</script>
+{% endblock %}

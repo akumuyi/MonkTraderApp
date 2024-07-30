@@ -1,0 +1,119 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-group label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Bold text for labels */
+    align-self: center;
+}
+
+.form-group input {
+    width: 100%; /* Full width for inputs */
+    padding: 5px; /* Padding inside inputs */
+    border: 1px solid #0781FE; /* Border for inputs */
+    border-radius: 4px; /* Rounded corners for inputs */
+    font-size: 16px; /* Font size for inputs */
+}
+
+.form-group input:focus {
+    border-color: #0781FE; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(7, 129, 254, 0.5); /* Subtle shadow on focus */
+}
+
+.btn {
+    background-color: #0781FE; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 15px; /* Padding inside button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size for button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.btn:hover {
+    background-color: #056ab1; /* Darker shade on hover */
+}
+
+.btn1 {
+    background-color: #0781FE; /* Button background color */
+    color: white; /* Button text color */
+    padding: 6px 20px; /* Padding inside button */
+    margin-bottom: -40px;
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 13px; /* Font size for button */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    left: 35px;
+    position: relative;
+    top: 5px;
+}
+
+.btn1:hover {
+    background-color: #056ab1; /* Darker shade on hover */
+}
+
+.materials {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #444;
+    border: 2px solid #0781FE;
+    border-radius: 10px; */
+    max-width: max-content;
+    margin: 20px auto;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+.material_file {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 170px;
+    height: 235px;
+    border: 1px solid #0781FE;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(107.56deg, #1e1e1e 0, #262729 100%);
+}
+
+.material_btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.material_btn button {
+    width: 100px;
+    height: 30px;
+    padding: 0;
+}
+
+.material_btn a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+    padding: 0;
+}

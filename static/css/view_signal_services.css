@@ -1,0 +1,94 @@
+#overview-section {
+    width: 100%;
+    min-width: 365px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#overview-section span {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+#overview_section p {
+    margin-bottom: 0.2rem;
+}
+
+.signals-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
+    border: 2px solid #0781FE;
+    border-radius: 10px;
+    max-width: max-content;
+    margin: 20px auto;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+/* Card ListView section for signal services*/
+.signal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+    border: 1px solid #0781FE;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(107.56deg, #1e1e1e 0, #262729 100%);
+    flex-wrap: wrap;
+    width: 162px;
+    height: 190px;
+}
+
+.signal-card h3 {
+    margin: 0;
+    text-align: center;
+    align-self: center;
+    color: #0781FE;
+    position: relative;
+    top: -5px;
+}
+
+.card-divs {
+    margin: 5px;
+}
+
+.card-divs span {
+    position: relative;
+    left: 75px;
+}
+
+span#entry_price {
+    left: 55px;
+}
+
+.disclaimer {
+    border: 1px solid #0781fe;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 25px;
+    box-shadow: 0 4px 30px #0781FE;
+}
+
+.disclaimer p {
+    line-height: 1.5rem !important;
+    margin: 0 !important;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .active_section {
+        width: 100%;
+    }
+
+    .signals-container {
+        width: min-content;
+    }
+}

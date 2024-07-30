@@ -1,0 +1,51 @@
+{% extends 'MonkTraderApp/homepage2.html' %}
+{% load static %}
+{% block title %}Market Analysis & Reports{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/view_market_report.css' %}">
+{% endblock %}
+{% block content %}
+<div id="overview_section">
+    <h2>📉📊Market Reports</h2>
+    <div class="report_card-container">
+        {% for report in analysis %}
+        <div class="report_card">
+            <div class="title" onclick="toggleReportContent('{{ report.id }}')" style="cursor: pointer;">
+                {{ report.title }}
+            </div>
+            <div id="report-content-{{ report.id }}" class="report-content" style="display: none;">
+                <p>{{ report.report|safe }}</p>
+                <div class="edit-del">
+                    <p>Posted {{ report.created_at|date:"jS F, h:i A" }} by <span
+                            style="color: #0781FE;">{{report.author.username }}</span></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    <div class="disclaimer">
+        <p>⚠ DISCLAIMER: The reports on this platform are solely the opinions of the author on financial instruments and the financial markets generally. They do not constitute professional financial or investment advice. Any risk associated with acting on the information in these reports is the user's responsibility. Trade Monastery or its affiliates are not responsible for any losses incurred by the user. The financial markets are very volatile and dynamic, past results do not determine future outcomes, kindly do your own due diligence before making any financial decisions.</p>
+    </div>
+    <div class="copyright">
+        <p style="text-align: center;">&copy; 2024 MonkTraderApp®. All rights reserved.</p>
+    </div>
+</div>
+{% endblock %}
