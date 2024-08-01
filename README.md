@@ -1,16 +1,14 @@
 # MonkTraderApp
 
-MonkTraderApp is a web application designed to provide market analysis reports. This application includes user authentication, allowing users to log in and access different features based on their roles (e.g., admin or regular user).
+MonkTraderApp is a web-app designed to facilitate access to financial markets information and resources for low-income earners and market enthusiasts generally. 
 
 ## Features
 
-- User Authentication
-  - Login with username and password
-  - Error handling for invalid login attempts
-- Role-based Access Control
-  - Different homepages for admin and regular users
-- Market Analysis Reports
-  - Access to various market analysis tools and reports
+- *Market Reports*: Traders, financial analyst, technical analyst and the general public can find insightful market analysis and reports on the app.
+- *Signal Services*: Signals are posted on the app for trading opportunities on a daily/weekly basis.
+- *Education/Mentorship*: Learning materials like videos, images, PDFs and audio notes are also shared regularly for trader development.
+- *Custom Authentication*: Secure custom authentication backend.
+- *Admin Interface*: Create and manage application content.
 
 ## Technologies Used
 
@@ -21,54 +19,71 @@ MonkTraderApp is a web application designed to provide market analysis reports. 
 
 ## Installation
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/yourusername/MonkTraderApp.git
-    cd MonkTraderApp
-    ```
+### Prerequisites
 
-2. **Create a virtual environment**:
-    ```bash
-    python -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
+- Python 3.10+
 
-3. **Install dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Setup
 
-4. **Apply migrations**:
-    ```bash
-    python manage.py migrate
-    ```
+1. *Create and activate a virtual environment:*
+   bash
+   ```
+   python -m venv your_virtual_environment_name
+   source venv/bin/activate   # On Windows use, `your_virtual_environment_name\Scripts\activate`
+   ```
 
-5. **Create a superuser**:
-    ```bash
-    python manage.py createsuperuser
-    ```
+2. *Clone the repository:*
+   bash
+   ```
+   git clone https://github.com/akumuyi/MonkTraderApp.git
+   ```
 
-6. **Run the development server**:
-    ```bash
-    python manage.py runserver
-    ```
+3. * Change to git repository*
+   bash
+   ```
+   cd MonkTraderApp/
 
-7. **Access the application**:
-    Open your web browser and go to `http://127.0.0.1:8000/`.
+ *Install dependencies:*
+   bash
+   ```
+   pip install -r requirements.txt
+   ```
 
+4. *Set up the Django project:*
+   bash
+   ```
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py createsuperuser --email=your_email --username=your_username
+   python manage.py check
+   python manage.py runserver
+   ```
+
+  
 ## Usage
 
-### Login
-
-- Navigate to the login page.
-- Enter your username and password.
-- If the credentials are incorrect, an error message will be displayed.
+- Log in to the admin panel at http://127.0.0.1:8000/admin/ using your superuser credentials.
+- Login or register at http://127.0.0.1:8000/MonkTraderApp/login/
 
 ### Admin and User Homepages
 
 - Admin users will be redirected to `homepage1`.
 - Regular users will be redirected to `homepage2`.
 
-## JavaScript Functionality
 
-The `auth.js` file contains JavaScript code that enhances the user experience on the login page. It handles input focus and blur events to style the labels accordingly.
+## Contributing
+
+Contributions are welcomed! Please see [CONTRIBUTING.md](CONTRIBUTING.md) file for more details.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+### Additional Included Files
+
+1. *CONTRIBUTING.md*: Guidelines for contributing to the project.
+2. *LICENSE*: The licensing information for the project.
+3. *requirements.txt*: List of dependencies required to run the project.
+4. *.gitignore*: Specifies files and directories to be ignored by Git.
